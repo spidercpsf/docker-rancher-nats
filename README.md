@@ -1,4 +1,3 @@
-# nats-docker
+# docker-rancher-nats
 
-This is the Git repo of the official Docker image for [nats](https://registry.hub.docker.com/_/nats/). See the
-Hub page for the full readme on how to use this Docker image and for information regarding contributing and issues.
+This is an extended version of the [official Docker image for nats](https://registry.hub.docker.com/_/nats/). It adds support to set up a cluster easily on [rancher](http://rancher.com).
