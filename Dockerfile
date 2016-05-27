@@ -1,13 +1,14 @@
-FROM debian:jessie-backports
+FROM byrnedo/alpine-curl
 
-MAINTAINER Derek Collison <derek@apcera.com>
+RUN apk add --update bash && rm -rf /var/cache/apk/*
 
-RUN apt-get update \
-	&& apt-get install -y curl \
-	&& rm -rf /var/lib/apt/lists/*
+COPY gnatsd /gnatsd
+COPY gnatsd.conf /gnatsd.conf
+COPY gnatsd.conf.tmp /gnatsd.conf.tmp
 
 ADD gnatsd /gnatsd
 ADD gnatsd.conf /gnatsd.conf
+ADD gnatsd.conf.tmp /gnatsd.conf.tmp
 COPY docker-entrypoint.sh /docker-entrypoint.sh
 
 ENV RANCHER_ENABLE=
